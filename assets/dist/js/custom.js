@@ -1,4 +1,8 @@
 $(document).ready(function () {
+  const menuBarDesktop = document.querySelectorAll(".menuBarDesktop");
+  const menuBarMobile = document.querySelectorAll(".menuBarMobile");
+  const sections = document.querySelectorAll("section[id], header[id]");
+
   // Smoth-scroll
   const ScrollArea = document.getElementById("scroll-content");
   const options = {
@@ -9,7 +13,14 @@ $(document).ready(function () {
     syncCallbacks: true,
     alwaysShowTracks: true,
   };
+
   var scrollbar = Scrollbar.init(ScrollArea, options);
+  activateMenu(
+    scrollbar.offset.y,
+    document.querySelector("header[id='home']"),
+    menuBarDesktop,
+    menuBarMobile
+  );
 
   $(".menuText").each(function () {
     var getText = $(this).children(".menuTextInner").text();
@@ -25,6 +36,12 @@ $(document).ready(function () {
       .on("click", function () {
         searchBar.toggleClass("showSearch");
       });
+
+    let scrollPosition = scrollbar.offset.y;
+
+    sections.forEach((section) => {
+      activateMenu(scrollPosition, section, menuBarDesktop, menuBarMobile);
+    });
   });
 
   // nav End
@@ -40,8 +57,6 @@ $(document).ready(function () {
       top: mouseY - buttonHeight / 2 + "px",
       left: mouseX - buttonWidth / 2 + "px",
     });
-
-    console.log("Mouse X: " + mouseX + ", Mouse Y: " + mouseY);
   });
 
   $(".fm-button, .fm-button-2").mouseleave(function () {
@@ -271,3 +286,26 @@ $(document).ready(function () {
     scrollbar.scrollTo(0, 0, 1000);
   });
 });
+
+function activateMenu(scrollPosition, section, menuBarDekstop, menuBarMobile) {
+  let sectionTop = section.offsetTop;
+  let sectionHeight = section.offsetHeight;
+  let sectionId = section.getAttribute("id");
+
+  if (
+    scrollPosition >= sectionTop - 50 &&
+    scrollPosition < sectionTop + sectionHeight
+  ) {
+    menuBarDekstop.forEach((link) => link.classList.remove("active"));
+    const activeLinkDesktop = document.querySelector(
+      `a[href='#${sectionId}'] .menuTextInner.menuBarDesktop`
+    );
+    if (activeLinkDesktop) activeLinkDesktop.classList.add("active");
+
+    menuBarMobile.forEach((link) => link.classList.remove("active"));
+    const activeLinkMobile = document.querySelector(
+      `a[href='#${sectionId}'] .menuTextInner.menuBarMobile`
+    );
+    if (activeLinkMobile) activeLinkMobile.classList.add("active");
+  }
+}
