@@ -4,6 +4,7 @@
     rgb(82, 244, 27) 0%,
     rgb(173, 255, 1) 100%
   );
+  --primary-color: rgb(82, 244, 27);
   --secondary-color: rgb(237, 255, 238);
   --heading-color: rgb(20, 29, 33);
   --text-color: rgb(71, 71, 71);
