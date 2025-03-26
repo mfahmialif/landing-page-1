@@ -31,7 +31,7 @@
     font-size: 30px;
   }
   .logo img {
-    width: 25px;
+    width: 90px;
   }
   .fm-h1 {
     font-size: 50px;
@@ -46,6 +46,9 @@
   .fm-button {
     height: 50px;
     padding: 0 20px;
+  }
+  .fm-menu {
+    margin-top: 0px;
   }
   .slide {
     font-size: 25px;

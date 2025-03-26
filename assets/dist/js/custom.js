@@ -192,21 +192,21 @@ $(document).ready(function () {
 
   const $cursor = $(".cursor");
 
-  $(document).on("mousemove", function (e) {
-    $cursor.css({
-      top: e.clientY - $cursor.height() / 2,
-      left: e.clientX - $cursor.width() / 2,
-    });
-  });
+  // $(document).on("mousemove", function (e) {
+  //   $cursor.css({
+  //     top: e.clientY - $cursor.height() / 2,
+  //     left: e.clientX - $cursor.width() / 2,
+  //   });
+  // });
 
-  $(document).on("mouseover", function (e) {
-    const cursorStyle = window.getComputedStyle(e.target).cursor;
-    if (cursorStyle === "pointer") {
-      $cursor.addClass("pointer-hover");
-    } else {
-      $cursor.removeClass("pointer-hover");
-    }
-  });
+  // $(document).on("mouseover", function (e) {
+  //   const cursorStyle = window.getComputedStyle(e.target).cursor;
+  //   if (cursorStyle === "pointer") {
+  //     $cursor.addClass("pointer-hover");
+  //   } else {
+  //     $cursor.removeClass("pointer-hover");
+  //   }
+  // });
 
   function startCountingAnimation($this) {
     let target = parseInt($this.text().replace(/,/g, ""), 10);

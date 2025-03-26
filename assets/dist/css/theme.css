@@ -159,6 +159,7 @@ header nav {
   gap: 20px;
   padding: 0 35px;
   transition: var(--transition);
+  margin-top: -16px;
 }
 .sticky {
   transform: translateY(-100px);
@@ -175,6 +176,7 @@ header nav {
   height: 100px;
   z-index: 10;
   box-shadow: 0px 22px 65px 0px rgba(32, 28, 29, 0.14) !important;
+  margin-top: 0px;
 }
 .logo {
   display: flex;
@@ -186,7 +188,7 @@ header nav {
   align-items: center;
 }
 .logo img {
-  width: 35px;
+  width: 100px;
 }
 .mainMenu {
   display: flex;
@@ -847,7 +849,7 @@ header nav {
 .aboutAgency::before {
   content: "";
   width: 100%;
-  height: 80%;
+  height: 90%;
   position: absolute;
   bottom: 0;
   left: 0;
